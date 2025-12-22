@@ -5,21 +5,21 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.ZoneRepository;
 import com.example.demo.service.ZoneService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service   // ⭐ THIS IS THE FIX
 public class ZoneServiceImpl implements ZoneService {
 
     private final ZoneRepository zoneRepository;
 
-    // Constructor order REQUIRED by tests
     public ZoneServiceImpl(ZoneRepository zoneRepository) {
         this.zoneRepository = zoneRepository;
     }
 
     @Override
     public Zone createZone(Zone zone) {
-
         if (zone.getPriorityLevel() < 1) {
             throw new BadRequestException(">= 1");
         }
@@ -35,7 +35,6 @@ public class ZoneServiceImpl implements ZoneService {
 
     @Override
     public Zone updateZone(Long id, Zone zone) {
-
         Zone existing = zoneRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Zone not found"));
 
@@ -59,7 +58,6 @@ public class ZoneServiceImpl implements ZoneService {
 
     @Override
     public void deactivateZone(Long id) {
-
         Zone zone = zoneRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Zone not found"));
 
