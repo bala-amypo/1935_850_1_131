@@ -1,16 +1,9 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
-
 import java.time.Instant;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Zone {
 
     @Id
@@ -25,11 +18,74 @@ public class Zone {
 
     private Integer population;
 
-    @Builder.Default
     private Boolean active = true;
 
     private Instant createdAt;
     private Instant updatedAt;
+
+    public Zone() {}
+
+    /* ---------- GETTERS ---------- */
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getZoneName() {
+        return zoneName;
+    }
+
+    public Integer getPriorityLevel() {
+        return priorityLevel;
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /* ---------- SETTERS ---------- */
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setZoneName(String zoneName) {
+        this.zoneName = zoneName;
+    }
+
+    public void setPriorityLevel(Integer priorityLevel) {
+        this.priorityLevel = priorityLevel;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    /* ---------- JPA CALLBACKS ---------- */
 
     @PrePersist
     public void onCreate() {

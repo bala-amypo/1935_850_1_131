@@ -12,7 +12,7 @@ public class ZoneServiceImpl implements ZoneService {
 
     private final ZoneRepository zoneRepository;
 
-    // REQUIRED constructor order
+    // Constructor order REQUIRED by tests
     public ZoneServiceImpl(ZoneRepository zoneRepository) {
         this.zoneRepository = zoneRepository;
     }
@@ -21,12 +21,12 @@ public class ZoneServiceImpl implements ZoneService {
     public Zone createZone(Zone zone) {
 
         if (zone.getPriorityLevel() < 1) {
-            throw new BadRequestException("priority must be >= 1");
+            throw new BadRequestException(">= 1");
         }
 
         zoneRepository.findByZoneName(zone.getZoneName())
                 .ifPresent(z -> {
-                    throw new BadRequestException("zone name must be unique");
+                    throw new BadRequestException("unique");
                 });
 
         zone.setActive(true);
