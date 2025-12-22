@@ -25,7 +25,6 @@ public class Zone {
 
     public Zone() {}
 
-    /* ---------- GETTERS ---------- */
 
     public Long getId() {
         return id;
@@ -55,8 +54,6 @@ public class Zone {
         return updatedAt;
     }
 
-    /* ---------- SETTERS ---------- */
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -84,8 +81,6 @@ public class Zone {
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    /* ---------- JPA CALLBACKS ---------- */
 
     @PrePersist
     public void onCreate() {

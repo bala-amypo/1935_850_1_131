@@ -22,8 +22,6 @@ public class ZoneRestorationRecord {
 
     public ZoneRestorationRecord() {}
 
-    /* ---------- GETTERS ---------- */
-
     public Long getId() {
         return id;
     }
@@ -43,8 +41,6 @@ public class ZoneRestorationRecord {
     public String getNotes() {
         return notes;
     }
-
-    /* ---------- SETTERS ---------- */
 
     public void setId(Long id) {
         this.id = id;

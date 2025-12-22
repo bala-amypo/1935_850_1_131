@@ -26,8 +26,6 @@ public class LoadSheddingEvent {
 
     public LoadSheddingEvent() {}
 
-    /* ---------- GETTERS ---------- */
-
     public Long getId() {
         return id;
     }
@@ -55,8 +53,6 @@ public class LoadSheddingEvent {
     public Double getExpectedDemandReductionMW() {
         return expectedDemandReductionMW;
     }
-
-    /* ---------- SETTERS ---------- */
 
     public void setId(Long id) {
         this.id = id;

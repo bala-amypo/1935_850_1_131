@@ -20,8 +20,6 @@ public class SupplyForecast {
 
     public SupplyForecast() {}
 
-    /* ---------- GETTERS ---------- */
-
     public Long getId() {
         return id;
     }
@@ -42,8 +40,6 @@ public class SupplyForecast {
         return generatedAt;
     }
 
-    /* ---------- SETTERS ---------- */
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -63,8 +59,6 @@ public class SupplyForecast {
     public void setGeneratedAt(Instant generatedAt) {
         this.generatedAt = generatedAt;
     }
-
-    /* ---------- JPA CALLBACK ---------- */
 
     @PrePersist
     public void onCreate() {
