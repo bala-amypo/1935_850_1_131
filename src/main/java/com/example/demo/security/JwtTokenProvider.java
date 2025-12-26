@@ -7,6 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.util.Date;
 
+@Component
 public class JwtTokenProvider {
 
     // Simple hardcoded secret (sufficient for tests)

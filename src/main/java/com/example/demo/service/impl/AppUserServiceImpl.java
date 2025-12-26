@@ -8,6 +8,7 @@ import com.example.demo.service.AppUserService;
 
 import java.util.Optional;
 
+@Service
 public class AppUserServiceImpl implements AppUserService {
 
     private final AppUserRepository userRepository;
