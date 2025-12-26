@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import lombok.*;
+import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity
