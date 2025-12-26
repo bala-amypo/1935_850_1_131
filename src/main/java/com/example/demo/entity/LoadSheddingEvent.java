@@ -1,8 +1,12 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
-import java.time.Instant;
 
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "load_shedding_events")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -10,11 +14,15 @@ import java.time.Instant;
 @Builder
 public class LoadSheddingEvent {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Zone zone;
-    private Instant eventStart;
-    private Instant eventEnd;
+
+    private String zoneName;
+
+    private LocalDateTime startTime;
+
+    private LocalDateTime endTime;
+
     private String reason;
-    private Long triggeredByForecastId;
-    private Double expectedDemandReductionMW;
 }

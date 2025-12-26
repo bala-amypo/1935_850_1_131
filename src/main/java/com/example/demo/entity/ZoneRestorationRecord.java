@@ -1,8 +1,12 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
-import java.time.Instant;
 
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "zone_restorations")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -10,9 +14,11 @@ import java.time.Instant;
 @Builder
 public class ZoneRestorationRecord {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Zone zone;
-    private Instant restoredAt;
-    private Long eventId;
-    private String notes;
+
+    private String zoneName;
+
+    private LocalDateTime restoredAt;
 }

@@ -1,8 +1,12 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
-import java.time.Instant;
 
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "demand_readings")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -10,8 +14,13 @@ import java.time.Instant;
 @Builder
 public class DemandReading {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Zone zone;
-    private Double demandMW;
-    private Instant recordedAt;
+
+    private Double demand;
+
+    private LocalDateTime timestamp;
+
+    private String zoneName;
 }

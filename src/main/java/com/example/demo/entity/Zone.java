@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import lombok.*;
 import java.time.Instant;
 
+@Entity
+@Table(name = "zones")
 @Getter
 @Setter
 @NoArgsConstructor
