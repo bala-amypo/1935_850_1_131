@@ -4,7 +4,9 @@ import com.example.demo.entity.AppUser;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.AppUserRepository;
 import com.example.demo.service.AppUserService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AppUserServiceImpl implements AppUserService {
 
     private final AppUserRepository userRepo;

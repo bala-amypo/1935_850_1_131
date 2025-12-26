@@ -9,9 +9,11 @@ import com.example.demo.repository.LoadSheddingEventRepository;
 import com.example.demo.repository.ZoneRepository;
 import com.example.demo.repository.ZoneRestorationRecordRepository;
 import com.example.demo.service.ZoneRestorationService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ZoneRestorationServiceImpl implements ZoneRestorationService {
 
     private final ZoneRestorationRecordRepository restorationRepo;
