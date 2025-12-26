@@ -22,17 +22,16 @@ public class SupplyForecastServiceImpl implements SupplyForecastService {
 
         if (forecast.getAvailableSupplyMW() == null ||
                 forecast.getAvailableSupplyMW() < 0) {
-            throw new BadRequestException("Supply must be >= 0");
+            throw new BadRequestException(">= 0");
         }
 
         if (forecast.getForecastStart() == null ||
                 forecast.getForecastEnd() == null ||
                 !forecast.getForecastStart().isBefore(forecast.getForecastEnd())) {
-            throw new BadRequestException("Invalid range");
+            throw new BadRequestException("range");
         }
 
         forecast.setGeneratedAt(Instant.now());
-
         return forecastRepository.save(forecast);
     }
 
@@ -44,13 +43,13 @@ public class SupplyForecastServiceImpl implements SupplyForecastService {
 
         if (updated.getAvailableSupplyMW() == null ||
                 updated.getAvailableSupplyMW() < 0) {
-            throw new BadRequestException("Supply must be >= 0");
+            throw new BadRequestException(">= 0");
         }
 
         if (updated.getForecastStart() == null ||
                 updated.getForecastEnd() == null ||
                 !updated.getForecastStart().isBefore(updated.getForecastEnd())) {
-            throw new BadRequestException("Invalid range");
+            throw new BadRequestException("range");
         }
 
         existing.setAvailableSupplyMW(updated.getAvailableSupplyMW());
@@ -61,10 +60,14 @@ public class SupplyForecastServiceImpl implements SupplyForecastService {
     }
 
     @Override
-    public SupplyForecast getLatestForecast() {
+    public SupplyForecast getForecastById(Long id) {
+        return forecastRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Forecast not found"));
+    }
 
-        return forecastRepository
-                .findFirstByOrderByGeneratedAtDesc()
+    @Override
+    public SupplyForecast getLatestForecast() {
+        return forecastRepository.findFirstByOrderByGeneratedAtDesc()
                 .orElseThrow(() -> new ResourceNotFoundException("No forecasts"));
     }
 
