@@ -10,7 +10,7 @@ import java.util.Date;
 public class JwtTokenProvider {
 
     private static final Key KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private static final long EXPIRATION_MS = 3600000; // 1 hour
+    private static final long EXPIRATION_MS = 3600000;
 
     public String createToken(AppUser user) {
         return Jwts.builder()
@@ -27,7 +27,7 @@ public class JwtTokenProvider {
         try {
             getClaims(token);
             return true;
-        } catch (JwtException | IllegalArgumentException e) {
+        } catch (Exception e) {
             return false;
         }
     }
