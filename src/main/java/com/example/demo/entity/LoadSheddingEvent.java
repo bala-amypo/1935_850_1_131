@@ -35,6 +35,9 @@ public class LoadSheddingEvent {
     @Column(nullable = false)
     private String reason;
 
-    // 🔥 THIS FIELD FIXES THE ERROR
+    // Already fixed earlier
     private Long triggeredByForecastId;
+
+    // 🔥 THIS FIELD FIXES THE CURRENT ERROR
+    private Double expectedDemandReductionMW;
 }
