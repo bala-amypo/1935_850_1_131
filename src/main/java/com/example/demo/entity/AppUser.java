@@ -25,6 +25,5 @@ public class AppUser {
     @Column(nullable = false)
     private String role;
 
-    @Builder.Default
-    private boolean active = true;
+    private boolean active;
 }

@@ -18,15 +18,13 @@ public class Zone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
     private String zoneName;
 
-    private Integer priorityLevel;
+    private int priorityLevel;
 
-    private Long population;
+    private long population;
 
-    @Column(nullable = false)
-    private Boolean active = true;
+    private boolean active;
 
     private Instant createdAt;
 

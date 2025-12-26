@@ -6,7 +6,6 @@ import lombok.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "load_shedding_events")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,26 +17,16 @@ public class LoadSheddingEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Zone zone;
 
-    @Column(nullable = false)
-    private Double demandMW;
-
-    @Column(nullable = false)
-    private Double availableSupplyMW;
-
-    @Column(nullable = false)
     private Instant eventStart;
 
     private Instant eventEnd;
 
-    @Column(nullable = false)
     private String reason;
 
-    // Already fixed earlier
     private Long triggeredByForecastId;
 
-    // 🔥 THIS FIELD FIXES THE CURRENT ERROR
     private Double expectedDemandReductionMW;
 }

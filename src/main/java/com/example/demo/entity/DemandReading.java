@@ -2,10 +2,10 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.Instant;
 
 @Entity
-@Table(name = "demand_readings")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,12 +17,10 @@ public class DemandReading {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Zone zone;
 
-    @Column(nullable = false)
-    private Double demandMW;
+    private double demandMW;
 
-    @Column(nullable = false)
     private Instant recordedAt;
 }
