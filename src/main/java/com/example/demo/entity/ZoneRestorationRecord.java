@@ -6,20 +6,21 @@ import lombok.*;
 import java.time.Instant;
 
 @Entity
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ZoneRestorationRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long eventId;
+
     @ManyToOne
     private Zone zone;
-
-    private Long eventId;
 
     private Instant restoredAt;
 

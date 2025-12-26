@@ -6,10 +6,11 @@ import lombok.*;
 import java.time.Instant;
 
 @Entity
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class DemandReading {
 
     @Id

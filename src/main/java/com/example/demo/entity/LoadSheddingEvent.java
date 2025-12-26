@@ -6,22 +6,23 @@ import lombok.*;
 import java.time.Instant;
 
 @Entity
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class LoadSheddingEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private Zone zone;
-
     private Instant eventStart;
+
+    private Double expectedDemandReductionMW;
 
     private String reason;
 
-    private Double expectedDemandReductionMW;
+    @ManyToOne
+    private Zone zone;
 }

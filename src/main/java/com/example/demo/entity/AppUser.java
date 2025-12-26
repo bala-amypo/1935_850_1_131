@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class AppUser {
 
     @Id
@@ -16,7 +17,7 @@ public class AppUser {
 
     private String email;
 
-    private String role;
-
     private String password;
+
+    private String role;
 }
