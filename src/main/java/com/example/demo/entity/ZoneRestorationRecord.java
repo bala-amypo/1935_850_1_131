@@ -1,12 +1,5 @@
-package com.example.demo.entity;
-
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.time.LocalDateTime;
-
 @Entity
-@Table(name = "zone_restorations")
+@Table(name = "zone_restoration_records")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,7 +11,10 @@ public class ZoneRestorationRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String zoneName;
+    private Long eventId;
 
-    private LocalDateTime restoredAt;
+    @ManyToOne
+    private Zone zone;
+
+    private Instant restoredAt;
 }

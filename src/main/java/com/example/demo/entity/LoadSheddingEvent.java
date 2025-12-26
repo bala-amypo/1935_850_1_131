@@ -1,10 +1,3 @@
-package com.example.demo.entity;
-
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "load_shedding_events")
 @Getter
@@ -18,11 +11,11 @@ public class LoadSheddingEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String zoneName;
+    @ManyToOne
+    private Zone zone;
 
-    private LocalDateTime startTime;
+    private Instant eventStart;
+    private Instant eventEnd;
 
-    private LocalDateTime endTime;
-
-    private String reason;
+    private Double demandMW;
 }

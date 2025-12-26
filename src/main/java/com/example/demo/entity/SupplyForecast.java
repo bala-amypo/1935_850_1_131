@@ -1,10 +1,3 @@
-package com.example.demo.entity;
-
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "supply_forecasts")
 @Getter
@@ -18,9 +11,10 @@ public class SupplyForecast {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double forecastedSupply;
+    private Double availableSupplyMW;
 
-    private LocalDateTime forecastTime;
+    private Instant forecastStart;
+    private Instant forecastEnd;
 
-    private String zoneName;
+    private Instant generatedAt;
 }

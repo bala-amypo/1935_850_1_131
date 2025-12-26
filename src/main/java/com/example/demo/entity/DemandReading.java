@@ -1,10 +1,3 @@
-package com.example.demo.entity;
-
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "demand_readings")
 @Getter
@@ -18,9 +11,10 @@ public class DemandReading {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double demand;
+    @ManyToOne
+    private Zone zone;
 
-    private LocalDateTime timestamp;
+    private Double demandMW;
 
-    private String zoneName;
+    private Instant recordedAt;
 }
