@@ -9,6 +9,7 @@ import com.example.demo.service.ZoneService;
 import java.time.Instant;
 import java.util.List;
 
+@Service
 public class ZoneServiceImpl implements ZoneService {
 
     private final ZoneRepository zoneRepo;

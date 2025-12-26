@@ -7,6 +7,7 @@ import com.example.demo.entity.Zone;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.DemandReadingRepository;
+import org.springframework.stereotype.Service;
 import com.example.demo.repository.LoadSheddingEventRepository;
 import com.example.demo.repository.SupplyForecastRepository;
 import com.example.demo.repository.ZoneRepository;
@@ -15,6 +16,7 @@ import com.example.demo.service.LoadSheddingService;
 import java.time.Instant;
 import java.util.List;
 
+@Service
 public class LoadSheddingServiceImpl implements LoadSheddingService {
 
     private final SupplyForecastRepository forecastRepo;
