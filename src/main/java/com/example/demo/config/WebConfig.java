@@ -1,5 +1,8 @@
 package com.example.demo.config;
 
-public class WebConfig {
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
+public class WebConfig {
+    // Minimal stub
 }
