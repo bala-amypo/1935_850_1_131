@@ -41,16 +41,3 @@ public class ZoneRestorationRecord {
         }
     }
 }
-
-public static class ZoneRestorationRecordBuilder {
-
-    public ZoneRestorationRecordBuilder eventId(int eventId) {
-        this.eventId = (long) eventId;
-        return this;
-    }
-
-    public ZoneRestorationRecordBuilder eventId(long eventId) {
-        this.eventId = eventId;
-        return this;
-    }
-}
