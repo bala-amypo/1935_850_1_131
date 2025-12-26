@@ -1,8 +1,7 @@
 package com.example.demo.entity;
 
-import lombok.*;
 import jakarta.persistence.*;
-import java.time.Instant;
+import lombok.*;
 
 @Entity
 @Table(name = "zones")
@@ -13,11 +12,16 @@ import java.time.Instant;
 @Builder
 public class Zone {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String zoneName;
+
     private Integer priorityLevel;
-    private Integer population;
-    private Boolean active;
-    private Instant createdAt;
-    private Instant updatedAt;
+
+    private Long population;
+
+    private boolean active;
 }
