@@ -17,27 +17,27 @@ public class ZoneController {
     }
 
     @PostMapping
-    public Zone createZone(@RequestBody Zone zone) {
+    public Zone create(@RequestBody Zone zone) {
         return zoneService.createZone(zone);
     }
 
     @PutMapping("/{id}")
-    public Zone updateZone(@PathVariable Long id, @RequestBody Zone zone) {
+    public Zone update(@PathVariable Long id, @RequestBody Zone zone) {
         return zoneService.updateZone(id, zone);
     }
 
     @GetMapping("/{id}")
-    public Zone getZoneById(@PathVariable Long id) {
+    public Zone get(@PathVariable Long id) {
         return zoneService.getZoneById(id);
     }
 
     @GetMapping
-    public List<Zone> getAllZones() {
+    public List<Zone> all() {
         return zoneService.getAllZones();
     }
 
     @DeleteMapping("/{id}")
-    public void deactivateZone(@PathVariable Long id) {
+    public void deactivate(@PathVariable Long id) {
         zoneService.deactivateZone(id);
     }
 }

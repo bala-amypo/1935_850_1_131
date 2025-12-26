@@ -1,26 +1,34 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.LoginRequest;
 import com.example.demo.entity.AppUser;
 import com.example.demo.security.JwtTokenProvider;
-import com.example.demo.service.AppUserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
-    private final AppUserService userService;
-    private final JwtTokenProvider tokenProvider;
+    private final JwtTokenProvider jwtTokenProvider;
 
-    public AuthController(AppUserService userService, JwtTokenProvider tokenProvider) {
-        this.userService = userService;
-        this.tokenProvider = tokenProvider;
+    public AuthController(JwtTokenProvider jwtTokenProvider) {
+        this.jwtTokenProvider = jwtTokenProvider;
     }
 
-    @PostMapping("/login")
-    public String login(@RequestBody LoginRequest request) {
-        AppUser user = userService.authenticate(request.getEmail(), request.getPassword());
-        return tokenProvider.createToken(user);
+    @PostMapping("/token")
+    public String createToken(@RequestBody AuthRequest request) {
+        AppUser user = AppUser.builder()
+                .id(request.userId)
+                .email(request.email)
+                .role(request.role)
+                .build();
+
+        return jwtTokenProvider.createToken(user);
+    }
+
+    // ✅ NO external DTO file
+    static class AuthRequest {
+        public Long userId;
+        public String email;
+        public String role;
     }
 }

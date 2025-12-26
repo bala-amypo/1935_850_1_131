@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/readings")
+@RequestMapping("/api/readings")
 public class DemandReadingController {
 
     private final DemandReadingService readingService;
@@ -22,20 +22,17 @@ public class DemandReadingController {
     }
 
     @GetMapping("/zone/{zoneId}")
-    public List<DemandReading> getByZone(@PathVariable Long zoneId) {
+    public List<DemandReading> byZone(@PathVariable Long zoneId) {
         return readingService.getReadingsForZone(zoneId);
     }
 
     @GetMapping("/zone/{zoneId}/latest")
-    public DemandReading getLatest(@PathVariable Long zoneId) {
+    public DemandReading latest(@PathVariable Long zoneId) {
         return readingService.getLatestReading(zoneId);
     }
 
-    @GetMapping("/zone/{zoneId}/recent")
-    public List<DemandReading> getRecent(
-            @PathVariable Long zoneId,
-            @RequestParam(defaultValue = "5") int limit
-    ) {
+    @GetMapping("/zone/{zoneId}/recent/{limit}")
+    public List<DemandReading> recent(@PathVariable Long zoneId, @PathVariable int limit) {
         return readingService.getRecentReadings(zoneId, limit);
     }
 }

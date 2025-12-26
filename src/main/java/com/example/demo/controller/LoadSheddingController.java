@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/shedding")
+@RequestMapping("/api/load-shedding")
 public class LoadSheddingController {
 
     private final LoadSheddingService sheddingService;
@@ -22,17 +22,17 @@ public class LoadSheddingController {
     }
 
     @GetMapping("/{id}")
-    public LoadSheddingEvent getById(@PathVariable Long id) {
+    public LoadSheddingEvent get(@PathVariable Long id) {
         return sheddingService.getEventById(id);
     }
 
     @GetMapping
-    public List<LoadSheddingEvent> getAll() {
+    public List<LoadSheddingEvent> all() {
         return sheddingService.getAllEvents();
     }
 
     @GetMapping("/zone/{zoneId}")
-    public List<LoadSheddingEvent> getForZone(@PathVariable Long zoneId) {
+    public List<LoadSheddingEvent> byZone(@PathVariable Long zoneId) {
         return sheddingService.getEventsForZone(zoneId);
     }
 }

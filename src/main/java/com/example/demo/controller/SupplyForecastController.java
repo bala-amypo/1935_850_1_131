@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/forecasts")
+@RequestMapping("/api/forecasts")
 public class SupplyForecastController {
 
     private final SupplyForecastService forecastService;
@@ -27,17 +27,17 @@ public class SupplyForecastController {
     }
 
     @GetMapping("/{id}")
-    public SupplyForecast getById(@PathVariable Long id) {
+    public SupplyForecast get(@PathVariable Long id) {
         return forecastService.getForecastById(id);
     }
 
     @GetMapping("/latest")
-    public SupplyForecast getLatest() {
+    public SupplyForecast latest() {
         return forecastService.getLatestForecast();
     }
 
     @GetMapping
-    public List<SupplyForecast> getAll() {
+    public List<SupplyForecast> all() {
         return forecastService.getAllForecasts();
     }
 }
