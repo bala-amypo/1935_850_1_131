@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.Instant;
 
 @Entity
@@ -30,4 +31,7 @@ public class LoadSheddingEvent {
     private Instant eventStart;
 
     private Instant eventEnd;
+
+    @Column(nullable = false)
+    private String reason;
 }

@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "zones")
 @Getter
@@ -23,5 +25,10 @@ public class Zone {
 
     private Long population;
 
-    private boolean active;
+    @Column(nullable = false)
+    private Boolean active = true;
+
+    private Instant createdAt;
+
+    private Instant updatedAt;
 }

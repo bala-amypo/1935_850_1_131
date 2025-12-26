@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.Instant;
 
 @Entity
@@ -25,4 +26,9 @@ public class ZoneRestorationRecord {
 
     @Column(nullable = false)
     private Instant restoredAt;
+
+    // Convenience method for service usage
+    public Long getEventId() {
+        return event != null ? event.getId() : null;
+    }
 }
