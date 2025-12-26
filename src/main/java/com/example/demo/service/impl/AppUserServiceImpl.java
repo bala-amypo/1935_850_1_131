@@ -36,6 +36,7 @@ public class AppUserServiceImpl implements AppUserService {
                 .email(email)
                 .password(password)
                 .role(role)
+                .active(true)
                 .build();
 
         return userRepository.save(user);
