@@ -3,6 +3,7 @@ package com.example.demo.security;
 import com.example.demo.entity.AppUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import org.springframework.stereotype.Component;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.util.Date;
