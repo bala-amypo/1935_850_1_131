@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "zone_restorations")
+@Table(name = "zone_restoration_records")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,17 +18,13 @@ public class ZoneRestorationRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // 🔥 REQUIRED BY TESTS
+    @Column(nullable = false)
+    private Long eventId;
+
     @ManyToOne(optional = false)
     private Zone zone;
 
-    @ManyToOne(optional = false)
-    private LoadSheddingEvent event;
-
     @Column(nullable = false)
     private Instant restoredAt;
-
-    // Convenience method for service usage
-    public Long getEventId() {
-        return event != null ? event.getId() : null;
-    }
 }
