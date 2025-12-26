@@ -18,7 +18,7 @@ public class ZoneRestorationRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 🔥 REQUIRED BY TESTS
+    // REQUIRED BY TESTS
     @Column(nullable = false)
     private Long eventId;
 
@@ -27,4 +27,17 @@ public class ZoneRestorationRecord {
 
     @Column(nullable = false)
     private Instant restoredAt;
+
+    // REQUIRED BY TESTS
+    private String notes;
+
+    /* ---------- TEST-COMPATIBILITY HELPERS ---------- */
+
+    // Allows .eventId(1)
+    public static class ZoneRestorationRecordBuilder {
+        public ZoneRestorationRecordBuilder eventId(int eventId) {
+            this.eventId = (long) eventId;
+            return this;
+        }
+    }
 }
