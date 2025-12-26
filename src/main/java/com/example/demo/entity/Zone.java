@@ -32,3 +32,16 @@ public class Zone {
 
     private Instant updatedAt;
 }
+
+public static class ZoneBuilder {
+
+    public ZoneBuilder id(int id) {
+        this.id = (long) id;
+        return this;
+    }
+
+    public ZoneBuilder id(long id) {
+        this.id = id;
+        return this;
+    }
+}
