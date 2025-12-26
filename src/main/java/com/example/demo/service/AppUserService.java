@@ -7,4 +7,6 @@ public interface AppUserService {
     AppUser createUser(AppUser user);
 
     AppUser getUserByEmail(String email);
+
+    AppUser getUserById(Long id);
 }
