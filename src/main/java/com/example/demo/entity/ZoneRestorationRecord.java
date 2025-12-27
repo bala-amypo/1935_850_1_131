@@ -6,6 +6,7 @@ import lombok.*;
 import java.time.Instant;
 
 @Entity
+@Table(name = "zone_restoration_record")
 @Getter
 @Setter
 @NoArgsConstructor

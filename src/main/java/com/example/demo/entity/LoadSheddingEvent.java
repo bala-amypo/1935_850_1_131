@@ -6,6 +6,7 @@ import lombok.*;
 import java.time.Instant;
 
 @Entity
+@Table(name = "load_shedding_event")
 @Getter
 @Setter
 @NoArgsConstructor
